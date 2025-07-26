@@ -4,14 +4,15 @@ type ButtonProps = {
     label: string;
     color: string;
     disabled?: boolean;
+    className: string;
     onClick: () => void;
 };
 
-const LabeledButton: React.FC<ButtonProps> = ({ label, color, disabled, onClick }) => {
+const LabeledButton: React.FC<ButtonProps> = ({ label, color, disabled, className, onClick }) => {
     return(
         <>
             <button
-                className="" 
+                className={className} 
                 color={color}
                 disabled={disabled}
                 onClick={onClick}

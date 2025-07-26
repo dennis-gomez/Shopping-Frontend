@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { Product, ProductCreateDTO } from "../models/Product";
 
-const apiProduct = "https://localhost:7176/api/Product/";
+const apiProduct = "https://localhost:7176/api/Products/";
 
 /*
 * endpoint create a product

@@ -5,7 +5,7 @@ import { createProduct, updateProduct } from "../../services/productServices";
 import InputLabeled from "../molecules/inputLabeled";
 
 type FormProductProps = {
-    product: Product | null;
+    product?: Product | null;
 }
 
 const FormProduct: React.FC<FormProductProps> = ({

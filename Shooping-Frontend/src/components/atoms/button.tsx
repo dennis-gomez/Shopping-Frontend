@@ -8,7 +8,7 @@ type ButtonProps = {
     onClick: () => void;
 };
 
-const LabeledButton: React.FC<ButtonProps> = ({ label, color, disabled, className, onClick }) => {
+const Button: React.FC<ButtonProps> = ({ label, color, disabled, className, onClick }) => {
     return(
         <>
             <button
@@ -23,4 +23,4 @@ const LabeledButton: React.FC<ButtonProps> = ({ label, color, disabled, classNam
     );
 };
 
-export default LabeledButton;
+export default Button;

@@ -4,24 +4,27 @@ import HeadingThree from "../atoms/headingThree";
 
 type ParagraphHeadedProps = {
     label: string;
+    labelClassName: string;
     paragraph: string;
+    paragraphClassName: string;
 }
 
 const ParagraphHeaded: React.FC<ParagraphHeadedProps> = ({
     label, 
-    paragraph
+    paragraph, 
+    labelClassName, 
+    paragraphClassName
 }) => {
     return(
         <>
         <div>
             <HeadingThree 
                 label={label}
-                className=""
+                className={labelClassName}
             />
-
             <Paragraph 
                 paragraph={paragraph}
-                className=""
+                className={paragraphClassName}
             />
         </div>
         </>

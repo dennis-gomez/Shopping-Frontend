@@ -41,21 +41,29 @@ const CardProduct: React.FC<CardProductProps> = ({
                 <ParagraphHeaded 
                     label="Code"
                     paragraph={product.codeCABYS.toString()}
+                    labelClassName=""
+                    paragraphClassName=""
                 />
 
                 <ParagraphHeaded 
                     label="Category"
                     paragraph={product.category.toString()}
+                    labelClassName=""
+                    paragraphClassName=""
                 />
 
                 <ParagraphHeaded 
                     label="Quantity"
                     paragraph={product.quantity.toString()}
+                    labelClassName=""
+                    paragraphClassName=""
                 />
 
                 <ParagraphHeaded 
                     label="Price"
                     paragraph={product.price.toString()}
+                    labelClassName=""
+                    paragraphClassName=""
                 />
                 
                 <Button 

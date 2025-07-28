@@ -12,7 +12,7 @@ const Input: React.FC<InputProps> = ({ value, type, placeholder, className, onCh
     return(
         <>
             <input 
-                type={type} 
+                type= {type}
                 placeholder={placeholder} 
                 className={className} 
                 value={value}

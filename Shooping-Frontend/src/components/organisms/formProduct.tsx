@@ -6,10 +6,12 @@ import InputLabeled from "../molecules/inputLabeled";
 
 type FormProductProps = {
     product?: Product | null;
+    classNameBtn: string;
 }
 
 const FormProduct: React.FC<FormProductProps> = ({
-    product
+    product, 
+    classNameBtn, 
 }) => {
 
     const [data, setData] =  useState < Product > ({
@@ -92,10 +94,9 @@ const FormProduct: React.FC<FormProductProps> = ({
                 <InputLabeled
                     labelText={field.label}
                     labelColor="black"
-                    labelClassName=""
+                    inputName=""
                     inputType= {field.type}
                     inputPlaceHolder={field.placeholder}
-                    inputClassName=""
                     inputValue={field.value}
                     inputOnChange={onChangeFields}
                 />
@@ -104,7 +105,7 @@ const FormProduct: React.FC<FormProductProps> = ({
             <Button 
                 label="Guardar"
                 color="blue"
-                className=""
+                className={classNameBtn}
                 onClick={() => saveProduct(data)}
             />
         </>

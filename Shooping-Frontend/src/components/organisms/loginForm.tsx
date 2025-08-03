@@ -4,20 +4,30 @@ import { useState } from "react";
 import type { Auth } from "../../models/Auth";
 import Button from "../atoms/button";
 import { login } from "../../services/authService"
+import HeadingOne from "../atoms/headingOne";
 
-const LoginForm: React.FC = () => {
+type LoginFormProps = {
+    classNameBtn: string;
+}
+
+const LoginForm: React.FC<LoginFormProps> = ({
+    classNameBtn
+}) => {
 
     const [credentials, setCredentials] = useState<Auth>({
-        email: '', 
-        password: ''
+        email: "", 
+        password: "",
     });
 
     const onChangeFields = ( event: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value, type } = event.target;
-
-        setCredentials ( (prev) => ({
+        const { name, value } = event.target;
+        
+        console.log(name)
+        console.log(value)
+        
+        setCredentials ((prev) => ({
             ...prev, 
-            [name]: type === 'number' ? Number(value) : value
+            [name]: value
         }));
     }
 
@@ -28,36 +38,39 @@ const LoginForm: React.FC = () => {
     return(
         <>
             <div
-                className=""
-                color=""
+                className="card-form"
             >
-                <InputLabeled
-                    labelText=""
-                    labelColor=""
-                    labelClassName=""
-                    inputType="text"
-                    inputPlaceHolder=""
-                    inputClassName=""
-                    inputValue={credentials.email}
-                    inputOnChange={onChangeFields}
+                <HeadingOne 
+                    className="" 
+                    label="Sign In"
                 />
-
                 <InputLabeled
-                    labelText=""
-                    labelColor=""
-                    labelClassName=""
+                    labelText="Email"
+                    inputType="text"
+                    inputName="email"
+                    inputPlaceHolder="Email"
+                    inputValue={credentials.email}
+                    inputOnChange={(e)=>onChangeFields(e)}
+                />
+                <InputLabeled
+                    labelText="Password"
                     inputType="password"
-                    inputPlaceHolder=""
-                    inputClassName=""
+                    inputName="password"
+                    inputPlaceHolder="Password"
                     inputValue={credentials.password}
                     inputOnChange={onChangeFields}
                 />
-
                 <Button 
-                    label="Log In"
+                    label="Create account"
                     color="blue"
-                    className=""
-                    onClick={() => logIn()}
+                    className={classNameBtn}
+                    onClick={logIn}
+                />
+                <Button 
+                    label="Login"
+                    color="blue"
+                    className={classNameBtn}
+                    onClick={logIn}
                 />
             </div>
         </>

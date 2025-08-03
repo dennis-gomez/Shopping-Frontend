@@ -5,7 +5,10 @@ type HeadingProps = {
     className: string;
 }
 
-const HeadingThree: React.FC<HeadingProps> = ({ label, className }) => {
+const HeadingThree: React.FC<HeadingProps> = ({ 
+    label, 
+    className 
+}) => {
     return (
         <>
             <h1 

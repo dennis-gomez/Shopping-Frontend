@@ -6,7 +6,11 @@ type FormProps = {
     children: React.ReactNode
 }
 
-const Form: React.FC<FormProps> = ({ color, className, children }) => {
+const Form: React.FC<FormProps> = ({ 
+    color, 
+    className, 
+    children 
+}) => {
     return(
         <>
             <div

@@ -4,7 +4,13 @@ import InputLabeled from "../molecules/inputLabeled";
 import type { UserCreateDTO } from "../../models/User";
 import { createUser } from "../../services/userService";
 
-const FormUser: React.FC = () => {
+type FormUserProps = {
+    classNameBtn: string
+}
+
+const FormUser: React.FC<FormUserProps> = ({
+    classNameBtn
+}) => {
 
     const [data, setData] =  useState < UserCreateDTO > ({
         username: '',
@@ -50,10 +56,9 @@ const FormUser: React.FC = () => {
                 <InputLabeled
                     labelText={field.label}
                     labelColor="black"
-                    labelClassName=""
+                    inputName=""
                     inputType= {field.type}
                     inputPlaceHolder={field.placeholder}
-                    inputClassName=""
                     inputValue={field.value}
                     inputOnChange={onChangeFields}
                 />
@@ -62,7 +67,7 @@ const FormUser: React.FC = () => {
             <Button 
                 label="Guardar"
                 color="blue"
-                className=""
+                className={classNameBtn}
                 onClick={() => saveUser()}
             />
         </>

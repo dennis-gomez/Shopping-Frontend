@@ -8,7 +8,9 @@ const TempAddUser: React.FC = () => {
                 label="Create User"
                 className=""
             />
-            <FormUser />
+            <FormUser 
+                classNameBtn="button-add"
+            />
         </>
     );
 }

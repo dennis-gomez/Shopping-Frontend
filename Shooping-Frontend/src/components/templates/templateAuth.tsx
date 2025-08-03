@@ -4,7 +4,9 @@ import LoginForm from "../organisms/loginForm";
 const TempAuth: React.FC = () => {
     return(
         <>
-            <LoginForm />
+            <LoginForm 
+                classNameBtn="button-add"
+            />
         </>
     );
 }

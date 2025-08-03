@@ -3,18 +3,24 @@ import React from "react";
 type ButtonProps = {
     label: string;
     color: string;
-    disabled?: boolean;
     className: string;
+    disabled?: boolean;
     onClick: () => void;
 };
 
-const Button: React.FC<ButtonProps> = ({ label, color, disabled, className, onClick }) => {
+const Button: React.FC<ButtonProps> = ({ 
+    label, 
+    color, 
+    disabled, 
+    className,
+    onClick 
+}) => {
     return(
         <>
             <button
-                className={className} 
                 color={color}
                 disabled={disabled}
+                className={className}
                 onClick={onClick}
             >
                 {label}

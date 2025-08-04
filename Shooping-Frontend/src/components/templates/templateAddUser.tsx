@@ -4,13 +4,17 @@ import FormUser from "../organisms/formUser";
 const TempAddUser: React.FC = () => {
     return (
         <>
-            <HeadingTwo 
+            <div
+                className="card-form"
+            >
+                <HeadingTwo 
                 label="Create User"
                 className=""
-            />
-            <FormUser 
-                classNameBtn="button-add"
-            />
+                />
+                <FormUser 
+                    classNameBtn="button-add"
+                />
+            </div> 
         </>
     );
 }

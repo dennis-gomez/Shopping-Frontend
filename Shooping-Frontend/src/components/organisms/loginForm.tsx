@@ -5,6 +5,8 @@ import type { Auth } from "../../models/Auth";
 import Button from "../atoms/button";
 import { login } from "../../services/authService"
 import HeadingOne from "../atoms/headingOne";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 type LoginFormProps = {
     classNameBtn: string;
@@ -13,6 +15,7 @@ type LoginFormProps = {
 const LoginForm: React.FC<LoginFormProps> = ({
     classNameBtn
 }) => {
+    const navigate = useNavigate();
 
     const [credentials, setCredentials] = useState<Auth>({
         email: "", 
@@ -33,6 +36,26 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
     async function logIn () {
         const result = await login(credentials);
+        if(result.token!==""){
+            localStorage.setItem("token", result.token);
+            redirectMenuPage();
+        } else {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: result.message,
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+    }
+
+    function redirect () {
+        navigate('user/add');
+    }
+
+    function redirectMenuPage () {
+        navigate('product/')
     }
 
     return(
@@ -64,7 +87,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                     label="Create account"
                     color="blue"
                     className={classNameBtn}
-                    onClick={logIn}
+                    onClick={redirect}
                 />
                 <Button 
                     label="Login"

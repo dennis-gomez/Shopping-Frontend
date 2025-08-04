@@ -1,3 +1,4 @@
+import ErrorMessage from "../atoms/error";
 import Input from "../atoms/input";
 import Label from "../atoms/label";
 
@@ -9,6 +10,7 @@ type InputLabeledProps = {
     inputOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     labelText: string;
     labelColor?: string;
+    errorMessage?: string;
 }
 
 const InputLabeled: React.FC<InputLabeledProps> = ({ 
@@ -19,6 +21,7 @@ const InputLabeled: React.FC<InputLabeledProps> = ({
     inputOnChange, 
     labelText, 
     labelColor, 
+    errorMessage
  }) => {
     return (
         <>
@@ -36,6 +39,11 @@ const InputLabeled: React.FC<InputLabeledProps> = ({
                     placeholder={inputPlaceHolder} 
                     onChange={inputOnChange}
                 /> 
+                {(errorMessage) && 
+                    <ErrorMessage 
+                        message={errorMessage}
+                    />
+                }
             </div>
         </>
     );

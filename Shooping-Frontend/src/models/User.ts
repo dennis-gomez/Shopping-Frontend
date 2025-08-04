@@ -13,3 +13,9 @@ export interface UserCreateDTO {
     email: string, 
     password: string, 
 }
+
+export interface ErrorUserDTO {
+    username: string, 
+    email: string, 
+    password: string, 
+}

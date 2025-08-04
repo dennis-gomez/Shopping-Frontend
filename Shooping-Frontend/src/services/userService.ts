@@ -20,14 +20,14 @@ export async function createUser( user: UserCreateDTO ){
             status: result.status
         }
     } catch (error) {
-        let message = 'Unknown Error.';
+        let data;
         let status = 500;
         if(axios.isAxiosError(error)){
-            message = error.response?.data
+            data = error.response?.data
             status = error.response?.status || 500
         }
          return {
-            message: message, 
+            data: data, 
             success: false, 
             status: status
         }

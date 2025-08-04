@@ -10,6 +10,7 @@ const TempAddProduct: React.FC = () => {
                 className=""
             />
             <FormProduct 
+                classNameBtn="button-add"
                 product={null}
             />
         </>

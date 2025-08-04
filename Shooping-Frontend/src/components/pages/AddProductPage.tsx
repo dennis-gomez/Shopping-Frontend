@@ -4,7 +4,9 @@ import TempAddProduct from "../templates/templateAddProduct";
 const AddProductPage: React.FC = () => {
     return(
         <>
-            <TempAddProduct />
+            {localStorage.getItem('token') &&
+                <TempAddProduct />
+            }
         </>
     );
 }

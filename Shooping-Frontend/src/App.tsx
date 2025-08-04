@@ -11,6 +11,7 @@ import ListUsersPage from './components/pages/ListUsersPage'
 /*
 * react-router-dom
 * axios
+* sweetalert
 */
 
 function App() {

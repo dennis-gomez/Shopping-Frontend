@@ -3,15 +3,19 @@ import type { Product, ProductCreateDTO } from "../models/Product";
 
 const apiProduct = "https://localhost:7176/api/Products/";
 
+//401: remove token
+
 /*
 * endpoint create a product
 * POST: /api/Products
 */
 export async function createProduct ( product: ProductCreateDTO ) {
     try {
+        const token = localStorage.getItem('token');
         const result = await axios.post(apiProduct, product, {
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json', 
+                Authorization: `Bearer ${token}`
             }
         });
         return {
@@ -40,9 +44,12 @@ export async function createProduct ( product: ProductCreateDTO ) {
 */
 export async function updateProduct ( product: Product ) {
     try {
+        const token = localStorage.getItem('token');
+
         const result = await axios.put(apiProduct +`/${product.id}`, product, {
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json', 
+                Authorization: `Bearer ${token}`
             }
         });
 
@@ -75,7 +82,14 @@ export async function updateProduct ( product: Product ) {
 export async function deleteProduct(id: number) {
     
     try {
-        const result = await axios.delete(apiProduct + `/${id}`);
+        const token = localStorage.getItem('token');
+
+        const result = await axios.delete(apiProduct + `/${id}`, {
+            headers: {
+                'Content-Type': 'application/json', 
+                Authorization: `Bearer ${token}`
+            }
+        });
         return {
             data: result.data, 
             status: result.status,
@@ -102,7 +116,14 @@ export async function deleteProduct(id: number) {
 */
 export async function getAllProducts() {
     try {
-        const result = await axios.get(apiProduct)
+        const token = localStorage.getItem('token');
+
+        const result = await axios.get(apiProduct, {
+            headers: {
+                'Content-Type': 'application/json', 
+                Authorization: `Bearer ${token}`
+            }
+        });
         return { 
             data: result.data, 
             success: true
@@ -123,7 +144,14 @@ export async function getAllProducts() {
 */
 export async function getProduct(id: number) {
     try {
-        const result = await axios.get(apiProduct + `/${id}`);
+        const token = localStorage.getItem('token');
+
+        const result = await axios.get(apiProduct + `/${id}`, {
+            headers: {
+                'Content-Type': 'application/json', 
+                Authorization: `Bearer ${token}`
+            }
+        });
         return {
             data: result.data, 
             status: result.status,

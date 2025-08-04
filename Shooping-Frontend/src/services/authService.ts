@@ -22,7 +22,7 @@ export async function login (auth: Auth) {
         let message = '';
         let status;
         if (axios.isAxiosError(error)){
-            message = error.response?.data;
+            message = error.response?.data.message;
             status = error.response?.status || 500;
         }
         return {

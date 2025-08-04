@@ -4,7 +4,9 @@ import TemplateListProduct from "../templates/templateListProduct";
 const ListProduct: React.FC = () => {
     return(
         <>
+        {localStorage.getItem('token') &&
             <TemplateListProduct />
+        }
         </>
     );
 }

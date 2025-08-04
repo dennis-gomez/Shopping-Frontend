@@ -90,7 +90,7 @@ label {
 }
 
 .button-remove {
-  background-color: rgb(180, 128, 128);
+  background-color: rgb(255, 143, 143);
 }
 
 .button-remove:hover {
@@ -108,5 +108,9 @@ label {
   border-radius: 5%;
   background-color: #373737;
   align-items: center;
+}
+
+.error-message {
+  color: rgb(255, 143, 143);
 }
 

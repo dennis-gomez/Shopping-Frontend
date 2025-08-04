@@ -26,9 +26,11 @@ const EditProductPage: React.FC = () => {
 
     return(
         <>
+        {localStorage.getItem('token') &&
           <TempEditProduct 
             product={product} 
-          />  
+          />
+        }  
         </>
     );
 }

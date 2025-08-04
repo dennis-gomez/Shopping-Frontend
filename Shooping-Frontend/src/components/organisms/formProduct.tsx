@@ -90,7 +90,10 @@ const FormProduct: React.FC<FormProductProps> = ({
 
     return (
         <>
-            {fields.map((field) => (
+            <div
+                className="card-form"
+            >
+                {fields.map((field) => (
                 <InputLabeled
                     labelText={field.label}
                     labelColor="black"
@@ -100,14 +103,15 @@ const FormProduct: React.FC<FormProductProps> = ({
                     inputValue={field.value}
                     inputOnChange={onChangeFields}
                 />
-            ))}
+                ))}
 
-            <Button 
-                label="Guardar"
-                color="blue"
-                className={classNameBtn}
-                onClick={() => saveProduct(data)}
-            />
+                <Button 
+                    label="Guardar"
+                    color="blue"
+                    className={classNameBtn}
+                    onClick={() => saveProduct(data)}
+                />
+            </div>  
         </>
     );
 }

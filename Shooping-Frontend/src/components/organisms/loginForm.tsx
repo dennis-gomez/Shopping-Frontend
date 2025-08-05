@@ -24,10 +24,6 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
     const onChangeFields = ( event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
-        
-        console.log(name)
-        console.log(value)
-        
         setCredentials ((prev) => ({
             ...prev, 
             [name]: value
@@ -36,8 +32,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
     async function logIn () {
         const result = await login(credentials);
-        if(result.token!==""){
-            localStorage.setItem("token", result.token);
+        if(localStorage.getItem('token')!==''){
             redirectMenuPage();
         } else {
             Swal.fire({

@@ -14,6 +14,9 @@ export async function login (auth: Auth) {
                 'Content-Type': 'application/json'
             }
         })
+
+        localStorage.setItem("token", result.data.token);
+        
         return {
             message: result.data.message,
             token: result.data.token
@@ -30,4 +33,12 @@ export async function login (auth: Auth) {
             status: status
         }
     }
+}
+
+export function authHeathers() {
+    const token = localStorage.getItem('token');
+    return{
+        'Content-Type': 'application/json', 
+        Authorization: `Barer ${token}`
+    };
 }

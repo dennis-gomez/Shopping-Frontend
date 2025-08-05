@@ -3,6 +3,8 @@ import type { Product, ProductCreateDTO } from "../../models/Product";
 import Button from "../atoms/button";
 import { createProduct, updateProduct } from "../../services/productServices";
 import InputLabeled from "../molecules/inputLabeled";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 type FormProductProps = {
     product?: Product | null;
@@ -13,6 +15,8 @@ const FormProduct: React.FC<FormProductProps> = ({
     product, 
     classNameBtn, 
 }) => {
+
+    const nav = useNavigate();
 
     const [data, setData] =  useState < Product > ({
         id: product?.id || 0,
@@ -33,7 +37,7 @@ const FormProduct: React.FC<FormProductProps> = ({
         }));
     }
 
-    const saveProduct = (data: Product ) => {
+    async function saveProduct (data: Product ){
         let result; 
 
         if(data.id === 0){
@@ -45,13 +49,20 @@ const FormProduct: React.FC<FormProductProps> = ({
                 price: data.price,
                 quantity: data.quantity, 
             };
-
-            result = createProduct(temp);
+            result = await createProduct(temp);
         }else{
-            result = updateProduct(data); 
+            result = await updateProduct(data); 
         }   
 
-
+        if(!result.success){
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: result.status == 401 ? 'Login timeout': result.message,
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
     }
 
     const fields = [
